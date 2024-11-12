@@ -159,7 +159,7 @@ const Navbars = () => {
 
                                 <li className="py-2" >
                                     <NavLink
-                                        to="/"
+                                        to="/aboutus"
                                         className={({ isActive }) =>
                                             `${isActive ? 'text-primary underline' : ''}`
                                         }

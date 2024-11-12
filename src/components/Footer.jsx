@@ -4,12 +4,12 @@ import logoImg from "../assets/Asset 1 1.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-color mt-[150px] w-full h-full py-16"  style={{  height: "261px" }}>
+    <footer className="bg-color mt-[150px] py-16 " >
       <div className="container mx-auto grid grid-cols-1  md:grid-cols-[400px_400px_100px_300px] gap-8 text-center md:text-left text-lg">
         {/* Column 1 */}
         <div>
          
-          <ul className="space-y-1 text-gray-600">
+          <ul className="space-y-1 text-gray-600 ">
             <li>Mobile App Development</li>
             <li>Digital Marketing</li>
             <li>Search Engine Marketing</li>
