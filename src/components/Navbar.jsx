@@ -124,13 +124,13 @@ import ResponsiveMenu from "./ResponsiveMenu";
 import logoImg from "../assets/s2 logo 2.jpeg";
 
 const Navbar = () => {
-  const [showMenu, setShowMenu] = useState(false);
-
+ const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => setShowMenu(!showMenu);
 
-  const navLinkClasses =
-    "text-white hover:text-orange-400 transition-colors duration-200";
-
+  const navLinkClasses = ({ isActive }) =>
+    `relative px-2 py-1 font-medium transition 
+     ${isActive ? "text-orange-400 after:w-full" : "text-white hover:text-orange-400"}
+     after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-orange-400 after:w-0 after:transition-all after:duration-300 hover:after:w-full`;
   return (
     <nav className="fixed top-0 w-full bg-[#1a1a2e] text-white shadow-lg z-50">
       <div className="container mx-auto px-4 lg:px-8">
@@ -139,31 +139,19 @@ const Navbar = () => {
           <Link to="/" onClick={() => window.scrollTo(0, 0)}>
             <img src={logoImg} alt="Logo" className="h-16 sm:h-20" />
           </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
-            <NavLink to="/" className={navLinkClasses}>
-              HOME
-            </NavLink>
-            <NavLink to="/about" className={navLinkClasses}>
-              ABOUT US
-            </NavLink>
-            <NavLink to="/menu" className={navLinkClasses}>
-              MENU
-            </NavLink>
-            <NavLink to="/blog" className={navLinkClasses}>
-              BLOG
-            </NavLink>
-            <NavLink to="/contact" className={navLinkClasses}>
-              CONTACT US
-            </NavLink>
+  <div className="hidden md:flex items-center space-x-8">
+            <NavLink to="/" className={navLinkClasses}>HOME</NavLink>
+            <NavLink to="/about" className={navLinkClasses}>ABOUT</NavLink>
+            <NavLink to="/menu" className={navLinkClasses}>MENU</NavLink>
+            <NavLink to="/blog" className={navLinkClasses}>BLOG</NavLink>
+            <NavLink to="/contact" className={navLinkClasses}>CONTACT</NavLink>
           </div>
 
-          {/* Desktop CTA */}
+          {/* CTA */}
           <div className="hidden md:block">
             <Link
               to="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-colors font-medium"
+              className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-6 py-2 rounded-full shadow-lg transition"
             >
               Get In Touch
             </Link>
@@ -172,17 +160,9 @@ const Navbar = () => {
           {/* Mobile Hamburger */}
           <div className="md:hidden">
             {showMenu ? (
-              <HiMenuAlt1
-                onClick={toggleMenu}
-                className="cursor-pointer text-white"
-                size={30}
-              />
+              <HiMenuAlt1 onClick={toggleMenu} size={30} className="cursor-pointer text-white" />
             ) : (
-              <HiMenuAlt3
-                onClick={toggleMenu}
-                className="cursor-pointer text-white"
-                size={30}
-              />
+              <HiMenuAlt3 onClick={toggleMenu} size={30} className="cursor-pointer text-white" />
             )}
           </div>
         </div>
